@@ -29,4 +29,13 @@ public class ProductTest{
 
     }
 
+
+    @Test
+    public void testxxx(){
+        VatEntity.getInstance().setVat(0.0);
+        assertThat(productDao.getProduct(3l).getTax(),is(0.00));
+        VatEntity.getInstance().setVat(1);
+        assertThat(productDao.getProduct(4l).getTax(),is(20000.00));
+    }
+
 }
